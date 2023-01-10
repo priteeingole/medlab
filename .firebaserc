@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "madllab-test29": {
+      "hosting": {
+        "medllab": [
+          "madllab-test29"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "madllab-test29"
+  }
+}

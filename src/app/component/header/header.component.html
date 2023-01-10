@@ -1,2 +1,33 @@
-<p>header works!</p>
-<p>hi,hhhhhhhhhh</p>
+ <div class="row bg-primary m-auto text-light shadow-sm">
+
+    <div class="col-md-4 ms-4 text-start">
+        <a class="navbar-brand" href="">Medllab</a>
+    </div>
+    <div class="col-md-6 text-end">
+      <a class="navbar-brand cursor" (click)="redirectToCart()"><i class="bi bi-cart2 me-2 fs-4"></i> <span class="cartCount">{{cardCount | async}}</span>Cart</a>
+
+      <a class="navbar-brand ms-4" *ngIf="!isLoginSuccess" data-bs-toggle="modal" data-bs-target="#loginModal" #loginBtn>Login</a>
+      <a class="navbar-brand ms-4" *ngIf="isLoginSuccess">{{loggedUserDetails?.userName}}</a>
+      <a href="" class="navbar-brand">About Us</a>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">{{CurrentName}}&nbsp;Form</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
+      </div>
+      <div class="modal-body">
+        <app-singup *ngIf="CurrentName == 'SignUp'"></app-singup>
+        <app-loginpage *ngIf="CurrentName == 'SignIn'" (signInSuccess)="handleLoginSuccess($event)"></app-loginpage>
+      </div>
+        
+        <div class="d-grid gap-2" >
+          <button class="btn btn-primary m-4" type="button" *ngIf="CurrentName=='SignIn'" (click)="changeAction('SignUp')">Sign Up</button>
+          <button class="btn btn-primary m-4" type="button" *ngIf="CurrentName=='SignUp'" (click)="changeAction('SignIn')">Login</button>
+        </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="isNewUser">
+    User doesn't Exist against this mobile Number,Please Check your credentials or Register first.
+  </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()"> 
+           <div class="mb-3">
+            <label for="mobNo" class="form-label">Mobile No</label>
+            <input type="text" class="form-control" id="mobNo" formControlName="mobileNo">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form> 
+    </div>
+ 
